@@ -82,4 +82,14 @@ document.addEventListener('DOMContentLoaded', () => {
         fadeInObserver.observe(element);
     });
 
+    // --- Hamburger Menu --- //
+    const navToggle = document.querySelector('.nav-toggle');
+    const globalNav = document.querySelector('.global-nav');
+
+    navToggle.addEventListener('click', () => {
+        globalNav.classList.toggle('is-active');
+        navToggle.classList.toggle('is-active');
+        document.body.classList.toggle('no-scroll'); // Add/remove no-scroll class
+    });
+
 });

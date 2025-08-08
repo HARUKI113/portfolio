@@ -15,6 +15,11 @@
     --font-family-heading: 'Poppins', sans-serif;
 }
 
+html {
+    /* Fluid typography: font size scales with viewport width */
+    font-size: clamp(14px, 1.5vw, 18px);
+}
+
 body.dark-mode {
     /* Dark Mode */
     --background-color: #212529;
@@ -23,6 +28,10 @@ body.dark-mode {
     --card-bg: #343a40;
     --border-color: #495057;
     --shadow-color: rgba(0,0,0,0.4);
+}
+
+body.no-scroll {
+    overflow: hidden;
 }
 
 body {
@@ -53,7 +62,7 @@ main > section:last-of-type {
 .section-title {
     text-align: center;
     font-family: var(--font-family-heading);
-    font-size: 3em;
+    font-size: 2.5rem; /* Changed from em to rem */
     margin-bottom: 60px;
     position: relative;
 }
@@ -86,7 +95,7 @@ a:hover {
 /* ======== Header ======== */
 header {
     background: var(--header-bg);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     padding: 20px 0;
     border-bottom: 1px solid var(--border-color);
     position: sticky;
@@ -109,7 +118,7 @@ header .container {
 header h1 a {
     margin: 0;
     font-family: var(--font-family-heading);
-    font-size: 1.8em;
+    font-size: 1.5rem; /* Changed from em to rem */
     color: var(--text-color);
 }
 
@@ -127,7 +136,7 @@ header nav ul {
 
 header nav a {
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1rem; /* Changed from em to rem */
 }
 
 /* ======== Theme Switch ======== */
@@ -160,7 +169,7 @@ header nav a {
 
 .profile-text h3 {
     font-family: var(--font-family-heading);
-    font-size: 2.5em;
+    font-size: 2rem; /* Changed from em to rem */
     margin-top: 0;
     margin-bottom: 15px;
 }
@@ -175,7 +184,7 @@ header nav a {
 
 .profile-category h4 {
     font-family: var(--font-family-heading);
-    font-size: 1.4em;
+    font-size: 1.2rem; /* Changed from em to rem */
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 5px;
     margin-bottom: 15px;
@@ -186,7 +195,7 @@ header nav a {
 }
 
 .school-name {
-    font-size: 1.2em;
+    font-size: 1.1rem; /* Changed from em to rem */
     font-weight: bold;
     margin: 0;
 }
@@ -204,14 +213,12 @@ header nav a {
     opacity: 0.8;
 }
 
-/* ======== Skills & Works Section ======== */
-.skills-grid, .works-grid {
+/* ======== Skills Section ======== */
+.skills-grid {
     display: grid;
     gap: 25px;
-}
-
-.skills-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
 }
 
 .works-grid {
@@ -304,6 +311,92 @@ header nav a {
     margin: 0;
 }
 
+/* ======== Awards Section ======== */
+.awards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.award-item {
+    background: var(--card-bg);
+    border-left: 5px solid var(--primary-color);
+    padding: 0; /* paddingを0に */
+    border-radius: 5px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: box-shadow 0.3s, transform 0.3s, background-color 0.3s; /* background-colorを追加 */
+}
+
+.award-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow-color);
+    background-color: var(--border-color); /* マウスオーバー時の背景色 */
+}
+
+.award-item-link {
+    display: block; /* リンクをブロック要素に */
+    padding: 20px 30px; /* paddingをリンクに移動 */
+    text-decoration: none;
+    color: inherit; /* 親要素から色を継承 */
+}
+
+.award-date {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0 0 5px;
+}
+
+.award-title {
+    font-family: var(--font-family-base);
+    font-size: 1.1rem; /* Changed from em to rem */
+    margin: 0;
+    font-weight: bold;
+}
+
+/* New styles for awards section */
+.award-details {
+    margin-top: 10px;
+}
+
+.award-name {
+    font-size: 1.2rem; /* Changed from em to rem */
+    margin: 0 0 5px;
+    color: var(--text-color);
+}
+
+.award-received {
+    font-size: 1.1rem; /* Changed from em to rem */
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.award-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem; /* Changed from em to rem */
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+    margin-top: 10px; /* Add margin-top for spacing */
+}
+
+.award-link:hover {
+    color: var(--secondary-color);
+}
+
+.award-link i {
+    font-size: 0.8rem; /* Changed from em to rem */
+}
+
+/* Remove old award-link styles */
+.award-link {
+    display: none;
+}
+
 /* ======== Contact Section ======== */
 .contact-links {
     display: flex;
@@ -328,8 +421,13 @@ footer {
     background: #343a40;
     color: #f8f9fa;
     text-align: center;
-    padding: 30px 0;
+    padding: 10px 0;
     margin-top: 40px;
+}
+
+/* ======== Hamburger Menu (Default Hidden) ======== */
+.nav-toggle {
+    display: none;
 }
 
 /* ======== Animations ======== */
@@ -342,4 +440,93 @@ footer {
 .section.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ======== Responsive (for screens smaller than 768px) ======== */
+@media (max-width: 768px) {
+    header .container {
+        justify-content: space-between;
+    }
+
+    .nav-toggle {
+        display: flex;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1100; /* navより手前に */
+    }
+
+    .nav-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: var(--text-color);
+        border-radius: 3px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-toggle.is-active span:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+    .nav-toggle.is-active span:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-toggle.is-active span:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+
+    header nav {
+        display: block;
+        position: fixed; /* Changed to fixed */
+        top: 0;
+        right: -100%; /* Start off-screen to the right */
+        width: 100%;
+        height: 100vh;
+        background: var(--background-color);
+        z-index: 1050;
+        transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    header nav.is-active {
+        transform: translateX(-100%);
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        gap: 40px;
+    }
+
+    header nav a {
+        font-size: 1.5rem; /* Changed from em to rem */
+    }
+
+    .theme-switch {
+        position: absolute;
+        top: 25px;
+        right: 80px; /* ハンバーガーボタンの隣に */
+        z-index: 1100;
+    }
+
+    .profile-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-text h3 {
+        font-size: 1.8rem; /* Changed from em to rem */
+    }
+
+    .profile-category h4 {
+        display: inline-block;
+    }
 }
