@@ -1,0 +1,345 @@
+/* ======== General Settings ======== */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    
+    /* Light Mode (default) */
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --header-bg: rgba(255, 255, 255, 0.8);
+    --card-bg: #fff;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0,0,0,0.1);
+
+    --font-family-base: 'Noto Sans JP', sans-serif;
+    --font-family-heading: 'Poppins', sans-serif;
+}
+
+body.dark-mode {
+    /* Dark Mode */
+    --background-color: #212529;
+    --text-color: #f8f9fa;
+    --header-bg: rgba(33, 37, 41, 0.8);
+    --card-bg: #343a40;
+    --border-color: #495057;
+    --shadow-color: rgba(0,0,0,0.4);
+}
+
+body {
+    font-family: var(--font-family-base);
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+main > section:last-of-type {
+    border-bottom: none;
+}
+
+.section-title {
+    text-align: center;
+    font-family: var(--font-family-heading);
+    font-size: 3em;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 20px auto 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+/* ======== Header ======== */
+header {
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.4s ease-out, box-shadow 0.3s;
+    will-change: transform;
+}
+
+header.header--hidden {
+    transform: translateY(-100%);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 a {
+    margin: 0;
+    font-family: var(--font-family-heading);
+    font-size: 1.8em;
+    color: var(--text-color);
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+header nav ul {
+    margin: 0;
+    display: flex;
+    gap: 30px;
+}
+
+header nav a {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* ======== Theme Switch ======== */
+.theme-switch {
+    cursor: pointer;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+}
+
+/* ======== Profile Section ======== */
+.profile-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.profile-text {
+    flex: 1;
+}
+
+.profile-text h3 {
+    font-family: var(--font-family-heading);
+    font-size: 2.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.profile-text p {
+    margin-bottom: 25px;
+}
+
+.profile-category {
+    margin-top: 25px;
+}
+
+.profile-category h4 {
+    font-family: var(--font-family-heading);
+    font-size: 1.4em;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.history-item {
+    margin-bottom: 15px;
+}
+
+.school-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.school-details {
+    margin: 5px 0 0;
+    opacity: 0.9;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-top: -40px;
+    margin-bottom: 40px;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* ======== Skills & Works Section ======== */
+.skills-grid, .works-grid {
+    display: grid;
+    gap: 25px;
+}
+
+.skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.works-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.skill-item, .work-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: box-shadow 0.3s;
+}
+
+.skill-item:hover, .work-item:hover {
+    box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.skill-item {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.skill-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    width: 40px; /* アイコンの幅を固定 */
+    text-align: center;
+}
+
+.skill-header p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-grow: 1;
+}
+
+.skill-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, margin-top 0.5s ease-out;
+    margin-top: 0;
+}
+
+.skill-item.active .skill-details {
+    max-height: 200px; /* 十分な高さを確保 */
+    margin-top: 20px;
+}
+
+.skill-rating {
+    color: #f39c12; /* 星の色 */
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.skill-comment {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.work-item {
+    overflow: hidden;
+}
+
+.work-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.work-item-content {
+    padding: 25px;
+}
+
+.work-item h3 {
+    font-family: var(--font-family-heading);
+    margin: 0 0 10px;
+}
+
+.work-item p {
+    margin: 0;
+}
+
+/* ======== Contact Section ======== */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.contact-link-item {
+    color: var(--text-color);
+    font-size: 3rem;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.contact-link-item:hover {
+    color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* ======== Footer ======== */
+footer {
+    background: #343a40;
+    color: #f8f9fa;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+
+/* ======== Animations ======== */
+.section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

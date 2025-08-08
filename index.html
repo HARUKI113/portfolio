@@ -1,11 +1,230 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
-  <title>挨拶ページ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haruki's Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<body>
-  <h1>こんにちは</h1>
-</body>
-</html>
 
+<body>
+
+  <header>
+    <div class="container">
+      <h1><a href="#">Haruki's Portfolio</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#works">Works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="theme-switch" id="theme-switch" aria-label="テーマを切り替える">
+          <span class="theme-switch-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="profile" class="section">
+      <div class="container">
+        <h2 class="section-title">Profile</h2>
+        <div class="profile-content">
+          <img src="img/profile.png" alt="プロフィール写真" class="profile-img">
+          <div class="profile-text">
+            <h3>はるき</h3>
+            <p>ここに自己紹介文が入ります。これまでの経験やスキル、今後の目標などを簡潔に記述します。Web開発への情熱や、新しい技術への探求心などをアピールするのも良いでしょう。</p>
+            
+            <div class="profile-category">
+              <h4>経歴・学歴</h4>
+              <div class="history-item">
+                <h5 class="school-name">大分工業高等専門学校</h5>
+                <p class="school-details">情報工学科 (2021.04 - 2026.03 卒業見込み)</p>
+              </div>
+              <div class="history-item">
+                <h5 class="school-name">〇〇中学校</h5>
+                <p class="school-details">2021.03 卒業</p>
+              </div>
+            </div>
+
+            <div class="profile-category">
+              <h4>趣味</h4>
+              <p>ランニング, 散歩</p>
+            </div>
+
+            <div class="profile-category">
+              <h4>資格</h4>
+              <p>基本情報技術者試験 (2023年取得)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">各スキルをクリックすると詳細が表示されます。</p>
+        <div class="skills-grid">
+
+          <div class="skill-item" tabindex="0">
+            <div class="skill-header">
+              <i class="fa-brands fa-html5 skill-icon"></i>
+              <p>HTML</p>
+            </div>
+            <div class="skill-details">
+              <div class="skill-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+              </div>
+              <p class="skill-comment">セマンティックなマークアップを意識して、Webページの骨格を構築できます。</p>
+            </div>
+          </div>
+
+          <div class="skill-item" tabindex="0">
+            <div class="skill-header">
+              <i class="fa-brands fa-css3-alt skill-icon"></i>
+              <p>CSS</p>
+            </div>
+            <div class="skill-details">
+              <div class="skill-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+              </div>
+              <p class="skill-comment">レスポンシブデザインやアニメーションを含め、柔軟なスタイリングが可能です。</p>
+            </div>
+          </div>
+
+          <div class="skill-item" tabindex="0">
+            <div class="skill-header">
+              <i class="fa-brands fa-js skill-icon"></i>
+              <p>JavaScript</p>
+            </div>
+            <div class="skill-details">
+              <div class="skill-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+              </div>
+              <p class="skill-comment">DOM操作やAPI連携など、Webページに動的な機能を追加できます。</p>
+            </div>
+          </div>
+
+          <div class="skill-item" tabindex="0">
+            <div class="skill-header">
+              <i class="fa-brands fa-python skill-icon"></i>
+              <p>Python</p>
+            </div>
+            <div class="skill-details">
+              <div class="skill-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+              </div>
+              <p class="skill-comment">Webバックエンドやデータ処理など、基本的なアプリケーションを作成できます。</p>
+            </div>
+          </div>
+
+          <div class="skill-item" tabindex="0">
+            <div class="skill-header">
+              <i class="fa-brands fa-react skill-icon"></i>
+              <p>React</p>
+            </div>
+            <div class="skill-details">
+              <div class="skill-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+              </div>
+              <p class="skill-comment">コンポーネントベースのUI開発に慣れています。</p>
+            </div>
+          </div>
+
+          <div class="skill-item" tabindex="0">
+            <div class="skill-header">
+              <i class="fa-brands fa-vuejs skill-icon"></i>
+              <p>Vue.js</p>
+            </div>
+            <div class="skill-details">
+              <div class="skill-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+              </div>
+              <p class="skill-comment">基本的なToDoアプリなどを開発した経験があります。</p>
+            </div>
+          </div>
+
+          <div class="skill-item" tabindex="0">
+            <div class="skill-header">
+              <i class="fa-brands fa-node-js skill-icon"></i>
+              <p>Node.js</p>
+            </div>
+            <div class="skill-details">
+              <div class="skill-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+              </div>
+              <p class="skill-comment">Expressを用いた簡単なAPIサーバーを構築できます。</p>
+            </div>
+          </div>
+
+          <div class="skill-item" tabindex="0">
+            <div class="skill-header">
+              <i class="fa-brands fa-linux skill-icon"></i>
+              <p>Linux</p>
+            </div>
+            <div class="skill-details">
+              <div class="skill-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+              </div>
+              <p class="skill-comment">開発環境として日常的に利用し、基本的なコマンド操作に習熟しています。</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="works" class="section">
+      <div class="container">
+        <h2 class="section-title">Works</h2>
+        <div class="works-grid">
+          <div class="work-item">
+            <img src="img/work1.png" alt="実績1の画像">
+            <h3>〇〇コンテスト 優勝</h3>
+            <p>20XX年に開催された〇〇コンテストで優勝しました。チームで開発した〇〇という作品です。</p>
+          </div>
+          <div class="work-item">
+            <h3>個人開発アプリ「△△」</h3>
+
+            <p>学習した技術のアウトプットとして、△△というToDo管理アプリを開発・公開しました。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">以下のリンクからお気軽にご連絡ください。</p>
+        <div class="contact-links">
+          <a href="mailto:your-email@example.com" class="contact-link-item" aria-label="Email">
+            <i class="fas fa-envelope contact-icon"></i>
+          </a>
+          <a href="https://github.com/your-username" target="_blank" class="contact-link-item" aria-label="GitHub">
+            <i class="fab fa-github contact-icon"></i>
+          </a>
+          <a href="https://twitter.com/your-username" target="_blank" class="contact-link-item" aria-label="X (Twitter)">
+            <i class="fab fa-twitter contact-icon"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Haruki.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
