@@ -262,6 +262,17 @@ header nav a {
     flex-grow: 1;
 }
 
+.skill-icon-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.skill-icon-group {
+    display: flex;
+    gap: 0px;
+}
+
 .skill-details {
     max-height: 0;
     overflow: hidden;
@@ -361,7 +372,6 @@ header nav a {
 }
 
 .award-name {
-    font-size: 1.2rem; /* Changed from em to rem */
     margin: 0 0 5px;
     color: var(--text-color);
 }
