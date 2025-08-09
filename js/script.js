@@ -4,14 +4,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeSwitch = document.getElementById('theme-switch');
     const body = document.body;
 
+    function updateThemeIcon() {
+        if (body.classList.contains('dark-mode')) {
+            themeSwitch.innerHTML = '<i class="fas fa-sun"></i>'; // Sun icon
+        } else {
+            themeSwitch.innerHTML = '<i class="fas fa-moon"></i>'; // Moon icon
+        }
+    }
+
     // Set initial theme to dark
     body.classList.add('dark-mode');
-    themeSwitch.textContent = '☀️'; // Sun icon for switching to light mode
+    updateThemeIcon();
 
     themeSwitch.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
-        const isDarkMode = body.classList.contains('dark-mode');
-        themeSwitch.textContent = isDarkMode ? '☀️' : '🌙'; // Moon icon for dark mode
+        updateThemeIcon();
     });
 
     // --- Smooth Scroll --- //
@@ -93,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- To Top Button --- //
-    const toTopBtn = document.getElementById('to-top');
+    const toTopBtn = document.getElementById('to-top-btn');
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
