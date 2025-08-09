@@ -99,6 +99,17 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('no-scroll'); // Add/remove no-scroll class
     });
 
+    // --- Close Hamburger Menu on Link Click --- //
+    const navLinks = document.querySelectorAll('.global-nav a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            globalNav.classList.remove('is-active');
+            navToggle.classList.remove('is-active');
+            document.body.classList.remove('no-scroll');
+        });
+    });
+
     // --- To Top Button --- //
     const toTopBtn = document.getElementById('to-top-btn');
 
