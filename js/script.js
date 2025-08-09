@@ -92,4 +92,23 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('no-scroll'); // Add/remove no-scroll class
     });
 
+    // --- To Top Button --- //
+    const toTopBtn = document.getElementById('to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            toTopBtn.classList.add('is-visible');
+        } else {
+            toTopBtn.classList.remove('is-visible');
+        }
+    });
+
+    toTopBtn.addEventListener('click', e => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
 });
