@@ -407,6 +407,92 @@ header nav a {
     display: none;
 }
 
+.publication-item {
+    background: var(--card-bg);
+    border-left: 5px solid var(--secondary-color);
+    padding: 0; /* paddingを0に */
+    border-radius: 5px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: box-shadow 0.3s, transform 0.3s, background-color 0.3s; /* background-colorを追加 */
+}
+
+.publication-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow-color);
+    background-color: var(--border-color); /* マウスオーバー時の背景色 */
+}
+
+.publication-item-link {
+    display: block; /* リンクをブロック要素に */
+    padding: 20px 30px; /* paddingをリンクに移動 */
+    text-decoration: none;
+    color: inherit; /* 親要素から色を継承 */
+}
+
+.publication-date {
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin: 0 0 5px;
+}
+
+.publication-details {
+    margin-top: 10px;
+}
+
+.publication-name {
+    margin: 0 0 5px;
+    color: var(--text-color);
+}
+
+.publication-info {
+    font-size: 1rem; /* Changed from em to rem */
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+.award-item-wrapper.with-publication .award-item {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition: border-radius 0.1s 0.2s;
+}
+
+.award-item-wrapper.with-publication:hover .award-item {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  transition-delay: 0s;
+}
+
+.publication-details-expandable {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+  padding: 0 30px;
+  background-color: var(--card-bg);
+  border-left: 5px solid var(--secondary-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  margin-top: -1px;
+}
+
+.award-item-wrapper.with-publication:hover .publication-details-expandable {
+  max-height: 100px; /* Adjust as needed */
+  padding: 20px 30px;
+}
+
+.publication-link {
+  display: block;
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.publication-link:hover {
+  text-decoration: underline;
+}
+
 /* ======== Contact Section ======== */
 .contact-links {
     display: flex;
