@@ -18,12 +18,12 @@
   <header>
     <div class="container">
       <h1><a href="#">Haruki's Portfolio</a></h1>
-      <button class="nav-toggle" aria-label="メニューを開閉する">
+      <button class="nav-toggle" aria-label="メニューを開閉する" aria-controls="global-nav" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <nav class="global-nav">
+      <nav class="global-nav" id="global-nav">
         <ul>
           <li><a href="#profile">Profile</a></li>
           <li><a href="#skills">Skills</a></li>
@@ -77,12 +77,12 @@
         <p class="section-subtitle">各スキルをクリックすると詳細が表示されます。</p>
         <div class="skills-grid">
           <!-- C -->
-          <div class="skill-item" tabindex="0">
+          <div class="skill-item" tabindex="0" role="button" aria-expanded="false" aria-controls="skill-details-c">
             <div class="skill-header">
               <img src="img/icon-c.svg" alt="C言語" class="skill-icon-img"/>
               <p>C</p>
             </div>
-            <div class="skill-details">
+            <div class="skill-details" id="skill-details-c">
               <div class="skill-rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -95,12 +95,12 @@
           </div>
 
           <!-- C++ -->
-          <div class="skill-item" tabindex="0">
+          <div class="skill-item" tabindex="0" role="button" aria-expanded="false" aria-controls="skill-details-cpp">
             <div class="skill-header">
               <img src="img/icon-cplusplus.svg" alt="C++" class="skill-icon-img"/>
               <p>C++</p>
             </div>
-            <div class="skill-details">
+            <div class="skill-details" id="skill-details-cpp">
               <div class="skill-rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -113,12 +113,12 @@
           </div>
 
           <!-- Python -->
-          <div class="skill-item" tabindex="0">
+          <div class="skill-item" tabindex="0" role="button" aria-expanded="false" aria-controls="skill-details-python">
             <div class="skill-header">
               <img src="img/icon-python.svg" alt="Python" class="skill-icon-img"/>
               <p>Python</p>
             </div>
-            <div class="skill-details">
+            <div class="skill-details" id="skill-details-python">
               <div class="skill-rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -339,7 +339,7 @@
         <h2 class="section-title">Awards</h2>
         <div class="awards-list">
           <div class="award-item">
-            <a href="https://kosen-ent-x.jp/" target="_blank" class="award-item-link">
+            <a href="https://kosen-ent-x.jp/" target="_blank" rel="noopener noreferrer" class="award-item-link">
               <p class="award-date">2026.2.28</p>
               <div class="award-details">
                 <h3 class="award-name">Ent-X | 地域DXエバンジェリスト創出プログラム</h3>
@@ -349,7 +349,7 @@
           </div>
           <div class="award-item-wrapper with-publication">
             <div class="award-item">
-              <a href="https://official-robocon.com/robocon_wp/wordpress/wp-content/uploads/2024/11/%E9%AB%98%E5%B0%82%E3%83%AD%E3%83%9C%E3%82%B3%E3%83%B32024%E5%85%A8%E5%9B%BD%E5%A4%A7%E4%BC%9A%E7%B5%90%E6%9E%9C.pdf" target="_blank" class="award-item-link">
+              <a href="https://official-robocon.com/robocon_wp/wordpress/wp-content/uploads/2024/11/%E9%AB%98%E5%B0%82%E3%83%AD%E3%83%9C%E3%82%B3%E3%83%B32024%E5%85%A8%E5%9B%BD%E5%A4%A7%E4%BC%9A%E7%B5%90%E6%9E%9C.pdf" target="_blank" rel="noopener noreferrer" class="award-item-link">
                 <p class="award-date">2024.11.17</p>
                 <div class="award-details">
                   <h3 class="award-name">アイデア対決・全国高等専門学校ロボットコンテスト2024 全国大会</h3>
@@ -358,13 +358,13 @@
               </a>
             </div>
             <div class="publication-details-expandable">
-              <a href="https://global.honda/jp/philanthropy/contents/next-generation/robocon/tournament/2024/report/" target="_blank" class="publication-link">
+              <a href="https://global.honda/jp/philanthropy/contents/next-generation/robocon/tournament/2024/report/" target="_blank" rel="noopener noreferrer" class="publication-link">
                 <p class="publication-info">記事が掲載されました</p>
               </a>
             </div>
           </div>
           <div class="award-item">
-            <a href="https://official-robocon.com/history/kosen/wp-content/uploads/result_kyusyu_kosen_robocon_2024.pdf" target="_blank" class="award-item-link">
+            <a href="https://official-robocon.com/history/kosen/wp-content/uploads/result_kyusyu_kosen_robocon_2024.pdf" target="_blank" rel="noopener noreferrer" class="award-item-link">
               <p class="award-date">2024.10.13</p>
               <div class="award-details">
                 <h3 class="award-name">アイデア対決・全国高等専門学校ロボットコンテスト2024 九州沖縄地区大会</h3>
@@ -373,7 +373,7 @@
             </a>
           </div>
           <div class="award-item">
-            <a href="https://dcon.ai/dcon2024/results2024/" target="_blank" class="award-item-link">
+            <a href="https://dcon.ai/dcon2024/results2024/" target="_blank" rel="noopener noreferrer" class="award-item-link">
               <p class="award-date">2024.05.10~2024.05.11</p>
               <div class="award-details">
                 <h3 class="award-name">第5回全国高等専門学校ディープラーニングコンテスト2024 (DCON2024)</h3>
@@ -382,7 +382,7 @@
             </a>
           </div>
           <div class="award-item">
-            <a href="https://official-robocon.com/history/kosen/wp-content/uploads/result_kyusyu_kosen_robocon_2023.pdf" target="_blank" class="award-item-link">
+            <a href="https://official-robocon.com/history/kosen/wp-content/uploads/result_kyusyu_kosen_robocon_2023.pdf" target="_blank" rel="noopener noreferrer" class="award-item-link">
               <p class="award-date">2023.10.15</p>
               <div class="award-details">
                 <h3 class="award-name">アイデア対決・全国高等専門学校ロボットコンテスト2023 九州沖縄地区大会</h3>
@@ -391,7 +391,7 @@
             </a>
           </div>
           <div class="award-item">
-            <a href="https://official-robocon.com/robocon_wp/wordpress/wp-content/uploads/2022/12/%E2%98%85%E2%98%85%E9%AB%98%E5%B0%82%E3%83%AD%E3%83%9C%E3%82%B3%E3%83%B32022%E5%85%A8%E5%9B%BD%E5%A4%A7%E4%BC%9A%E7%B5%90%E6%9E%9C%E3%80%81%E3%83%88%E3%83%BC%E3%83%8A%E3%83%A1%E3%83%B3%E3%83%88%E8%A1%A8.pdf" target="_blank" class="award-item-link">
+            <a href="https://official-robocon.com/robocon_wp/wordpress/wp-content/uploads/2022/12/%E2%98%85%E2%98%85%E9%AB%98%E5%B0%82%E3%83%AD%E3%83%9C%E3%82%B3%E3%83%B32022%E5%85%A8%E5%9B%BD%E5%A4%A7%E4%BC%9A%E7%B5%90%E6%9E%9C%E3%80%81%E3%83%88%E3%83%BC%E3%83%8A%E3%83%A1%E3%83%B3%E3%83%88%E8%A1%A8.pdf" target="_blank" rel="noopener noreferrer" class="award-item-link">
               <p class="award-date">2022.11.27</p>
               <div class="award-details">
                 <h3 class="award-name">アイデア対決・全国高等専門学校ロボットコンテスト2022 全国大会</h3>
@@ -400,7 +400,7 @@
             </a>
           </div>
           <div class="award-item">
-            <a href="https://official-robocon.com/history/kosen/wp-content/uploads/result_kyusyu_kosen_robocon_2022.pdf" target="_blank" class="award-item-link">
+            <a href="https://official-robocon.com/history/kosen/wp-content/uploads/result_kyusyu_kosen_robocon_2022.pdf" target="_blank" rel="noopener noreferrer" class="award-item-link">
               <p class="award-date">2022.10.30</p>
               <div class="award-details">
                 <h3 class="award-name">アイデア対決・全国高等専門学校ロボットコンテスト2022 九州沖縄地区大会</h3>
@@ -417,13 +417,13 @@
         <h2 class="section-title">Contact</h2>
         <p class="section-subtitle">以下のリンクからお気軽にご連絡ください。</p>
         <div class="contact-links">
-          <a href="mailto:h.haruki180113@gmail.com" class="contact-link-item" aria-label="Email">
+          <a href="mailto:h.haruki0113@icloud.com" class="contact-link-item" aria-label="Email">
             <i class="fas fa-envelope contact-icon"></i>
           </a>
-          <a href="https://github.com/HARUKI113/" target="_blank" class="contact-link-item" aria-label="GitHub">
+          <a href="https://github.com/HARUKI113/" target="_blank" rel="noopener noreferrer" class="contact-link-item" aria-label="GitHub">
             <i class="fab fa-github contact-icon"></i>
           </a>
-          <a href="https://twitter.com/hira_honaka" target="_blank" class="contact-link-item"
+          <a href="https://twitter.com/hirao113" target="_blank" rel="noopener noreferrer" class="contact-link-item"
             aria-label="X (Twitter)">
             <i class="fab fa-twitter contact-icon"></i>
           </a>

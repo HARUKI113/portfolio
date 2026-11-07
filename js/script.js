@@ -1,3 +1,5 @@
+document.documentElement.classList.add('js-enabled');
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Theme Switch --- //
@@ -56,19 +58,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const skillItems = document.querySelectorAll('.skill-item');
 
     skillItems.forEach(item => {
+        const details = item.querySelector('.skill-details');
+        const detailsId = details.id || `skill-details-${Array.from(skillItems).indexOf(item) + 1}`;
+        details.id = detailsId;
+        item.setAttribute('role', 'button');
+        item.setAttribute('aria-controls', detailsId);
+        item.setAttribute('aria-expanded', 'false');
+        item.setAttribute('aria-label', `${item.querySelector('.skill-header p').textContent.trim()}の詳細`);
+        details.setAttribute('aria-hidden', 'true');
+
+        const setExpanded = expanded => {
+            item.classList.toggle('active', expanded);
+            item.setAttribute('aria-expanded', String(expanded));
+            details.setAttribute('aria-hidden', String(!expanded));
+        };
+
         item.addEventListener('click', () => {
             // Close other open items
             skillItems.forEach(otherItem => {
                 if (otherItem !== item && otherItem.classList.contains('active')) {
                     otherItem.classList.remove('active');
+                    otherItem.setAttribute('aria-expanded', 'false');
+                    otherItem.querySelector('.skill-details').setAttribute('aria-hidden', 'true');
                 }
             });
             // Toggle current item
-            item.classList.toggle('active');
+            setExpanded(!item.classList.contains('active'));
         });
         // Allow keyboard navigation
         item.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
                 item.click();
             }
         });
@@ -76,27 +96,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Section Fade-in Animation --- //
     const fadeInElements = document.querySelectorAll('.section');
-    const fadeInObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
+    if ('IntersectionObserver' in window) {
+        const fadeInObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
 
-    fadeInElements.forEach(element => {
-        fadeInObserver.observe(element);
-    });
+        fadeInElements.forEach(element => fadeInObserver.observe(element));
+    } else {
+        fadeInElements.forEach(element => element.classList.add('is-visible'));
+    }
 
     // --- Hamburger Menu --- //
     const navToggle = document.querySelector('.nav-toggle');
     const globalNav = document.querySelector('.global-nav');
 
     navToggle.addEventListener('click', () => {
-        globalNav.classList.toggle('is-active');
-        navToggle.classList.toggle('is-active');
-        document.body.classList.toggle('no-scroll'); // Add/remove no-scroll class
+        const isOpen = !globalNav.classList.contains('is-active');
+        globalNav.classList.toggle('is-active', isOpen);
+        navToggle.classList.toggle('is-active', isOpen);
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+        document.body.classList.toggle('no-scroll', isOpen);
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && globalNav.classList.contains('is-active')) {
+            globalNav.classList.remove('is-active');
+            navToggle.classList.remove('is-active');
+            navToggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('no-scroll');
+            navToggle.focus();
+        }
     });
 
     // --- Close Hamburger Menu on Link Click --- //
@@ -106,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             globalNav.classList.remove('is-active');
             navToggle.classList.remove('is-active');
+            navToggle.setAttribute('aria-expanded', 'false');
             document.body.classList.remove('no-scroll');
         });
     });
